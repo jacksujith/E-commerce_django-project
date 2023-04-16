@@ -1,0 +1,36 @@
+{% extends 'layouts/main.html'%}
+{% block title %}
+  Shopart | online
+{% endblock title %}
+{% block content %}
+
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">{{category_name}} Products</h4>
+                <hr style="border-color: red">        
+                                
+            </div>
+            {% for item in products  %}
+            <div class="col-3">
+                <div class="card my-3 products" >
+                    <img src="{{ item.product_image.url }}" class="img-fluid" alt="Categories">
+                    <a href="{% url 'products_details' category_name item.name %}">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ item.name }}</h5>
+                        <p class="card-text">
+                           <span class="float-start old_price text-danger"><s>Rs.{{item.original_price | stringformat:'d' }}</s></span>
+                           <span class="float-end new_price, text-success"> Rs.{{item.selling_price | stringformat:'d' }}</span>
+                        </p>
+
+                    </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
+  

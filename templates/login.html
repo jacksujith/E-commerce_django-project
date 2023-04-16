@@ -1,0 +1,41 @@
+{% extends 'layouts/main.html'%}
+{% block title %}
+  Register Page | SHOPART
+{% endblock title %}
+{% block content %}
+
+    <div class="container " style="margin-top;min-height:600px;">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="mb-2 py-3">User Login</h3>
+                <hr style="border-color: red">  
+                {% include 'layouts/messages.html' %}
+            </div>
+        </div>
+        <section class="py-4 my-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 px-5">
+                       
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                <input type="text" name="username"  class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+                              </div>
+                         
+                              <div class="mb-3">
+                                  <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                  <input type="password" name="password"  class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+                                </div>
+                         
+                            <button typr="submit" class="btn btn-primary">Login</button>                            
+                        </form>
+                      
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock content %}
+  
